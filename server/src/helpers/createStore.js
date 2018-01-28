@@ -8,6 +8,8 @@ export default req => {
     baseURL: 'http://react-ssr-api.herokuapp.com',
     headers: { cookie: req.get('cookie') || '' },
   })
+
   const store = createStore(reducers, {}, applyMiddleware(thunk.withExtraArgument(axiosInstance)))
+
   return store
 }

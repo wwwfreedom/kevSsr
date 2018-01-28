@@ -12,6 +12,7 @@ app.use(
   '/api',
   proxy('http://react-ssr-api.herokuapp.com', {
     // this object is specific for this api server to deal with some google oauth issue, you might not need to this for your api server
+    // this basically tell the redirect backto localhost:3000 as how the api server is setup to redirect back to localhost if it see this opts.header
     proxyReqOptDecorator(opts) {
       opts.headers['x-forwarded-host'] = 'localhost:3000'
       return opts
