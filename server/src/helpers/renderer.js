@@ -6,12 +6,12 @@ import { renderRoutes } from 'react-router-config'
 import { Provider } from 'react-redux'
 import serialize from 'serialize-javascript'
 
-export default (req, store) => {
+export default (req, store, context) => {
   const content = renderToString(
     // context is require for static router and is use handle redirect and error handling
     // Static router need to know the current path this will be past in by the express
     <Provider store={store}>
-      <StaticRouter location={req.path} context={{}}>
+      <StaticRouter location={req.path} context={context}>
         <div>{renderRoutes(Routes)}</div>
       </StaticRouter>
     </Provider>

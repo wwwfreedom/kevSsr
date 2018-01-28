@@ -1,11 +1,16 @@
 import React from 'react'
 import App from './App.js'
 import HomePage from './pages/HomePage.js'
+import NotFoundPage from './pages/NotFoundPage.js'
 import UsersListPage from './pages/UsersListPage.js'
 
 export default [
   {
     ...App,
-    routes: [{ ...HomePage, path: '/', exact: true }, { ...UsersListPage, path: '/users' }],
+    routes: [
+      { ...HomePage, path: '/', exact: true },
+      { ...UsersListPage, path: '/users' },
+      { ...NotFoundPage },
+    ],
   },
 ]
